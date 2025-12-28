@@ -1,0 +1,52 @@
+# Source files (only include compiled dist/)
+src/
+*.ts
+!*.d.ts
+
+# Tests
+test/
+tests/
+__tests__/
+*.test.ts
+*.spec.ts
+
+# Development files
+.git/
+.github/
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+node_modules/
+coverage/
+.nyc_output/
+
+# Configuration files
+.eslintrc*
+.prettierrc*
+tsconfig.json
+tsconfig.*.json
+jest.config.*
+
+# Documentation (only README.md, CHANGELOG.md, and LICENSE are included)
+docs/
+*.md
+!README.md
+!CHANGELOG.md
+
+# Environment and local files
+.env
+.env.*
+*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other
+*.tgz
+.npmrc
