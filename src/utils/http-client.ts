@@ -24,6 +24,7 @@ export class HttpClient {
     this.teamId = config.teamId;
 
     // Create axios instance with secure defaults
+    // Default to production API, can be overridden with baseURL config
     this.client = axios.create({
       baseURL: config.baseURL || 'https://api.sendmator.com/api',
       timeout: config.timeout || 30000,
@@ -98,6 +99,14 @@ export class HttpClient {
    */
   async put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
     const response: AxiosResponse<T> = await this.client.put(url, data, config);
+    return response.data;
+  }
+
+  /**
+   * Make a PATCH request
+   */
+  async patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
+    const response: AxiosResponse<T> = await this.client.patch(url, data, config);
     return response.data;
   }
 
