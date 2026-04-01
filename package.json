@@ -1,7 +1,7 @@
 {
   "name": "@sendmator/node",
-  "version": "0.0.1",
-  "description": "Official Node.js SDK for Sendmator - Multi-channel messaging API (Email, SMS, WhatsApp, OTP)",
+  "version": "0.0.2",
+  "description": "Official Node.js SDK for Sendmator - Multi-channel messaging API (Email, SMS, WhatsApp, Push Notifications, OTP)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -25,12 +25,19 @@
     "email",
     "sms",
     "whatsapp",
+    "push-notifications",
+    "fcm",
+    "apns",
+    "firebase",
     "otp",
     "messaging",
     "notifications",
     "transactional-email",
     "api-client",
-    "sdk"
+    "sdk",
+    "contact-management",
+    "preference-center",
+    "device-tokens"
   ],
   "author": "Sendmator Team",
   "license": "MIT",
