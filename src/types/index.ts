@@ -39,6 +39,8 @@ export interface Contact {
   tags?: string[];
   custom_fields?: Record<string, any>;
   preferences?: ContactPreferences;
+  fcm_token?: string;
+  apns_token?: string;
 }
 
 export interface ContactPreferences {

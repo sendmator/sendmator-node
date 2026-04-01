@@ -277,4 +277,60 @@ export class Contacts {
   async subscribeAll(id: string): Promise<SendmatorResponse<Contact>> {
     return this.http.post<SendmatorResponse<Contact>>(`/v1/contacts/${id}/preferences/subscribe-all`);
   }
+
+  /**
+   * Update device token for push notifications
+   *
+   * @param id - Contact ID
+   * @param fcmToken - Firebase Cloud Messaging token (optional)
+   * @param apnsToken - Apple Push Notification Service token (optional)
+   *
+   * @example
+   * ```typescript
+   * // Update FCM token
+   * await sendmator.contacts.updateDeviceToken('contact-id', {
+   *   fcm_token: 'firebase-token-here'
+   * });
+   *
+   * // Update both FCM and APNS tokens
+   * await sendmator.contacts.updateDeviceToken('contact-id', {
+   *   fcm_token: 'firebase-token',
+   *   apns_token: 'apple-token'
+   * });
+   * ```
+   */
+  async updateDeviceToken(
+    id: string,
+    data: { fcm_token?: string; apns_token?: string }
+  ): Promise<SendmatorResponse<Contact>> {
+    return this.http.patch<SendmatorResponse<Contact>>(
+      `/v1/contacts/${id}/device-token`,
+      data
+    );
+  }
+
+  /**
+   * Update device token by external ID for push notifications
+   *
+   * @param externalId - Contact's external ID
+   * @param fcmToken - Firebase Cloud Messaging token (optional)
+   * @param apnsToken - Apple Push Notification Service token (optional)
+   *
+   * @example
+   * ```typescript
+   * // Update FCM token by external ID
+   * await sendmator.contacts.updateDeviceTokenByExternalId('user-123', {
+   *   fcm_token: 'firebase-token-here'
+   * });
+   * ```
+   */
+  async updateDeviceTokenByExternalId(
+    externalId: string,
+    data: { fcm_token?: string; apns_token?: string }
+  ): Promise<SendmatorResponse<Contact>> {
+    return this.http.patch<SendmatorResponse<Contact>>(
+      `/v1/contacts/external/${encodeURIComponent(externalId)}/device-token`,
+      data
+    );
+  }
 }
